@@ -6,11 +6,13 @@ import java.util.Map;
 import com.chuangcache.utils.RequestUtil;
 import org.apache.commons.lang.StringUtils;
 
-public class Token {
+public class Token extends BaseAPI {
 
     private static String APPID = "xf3H3si8I0o31ilL";
     private static String APPSECRET = "Gi3ZbVjCi7Vt1qZxI55JiMuEzQQZCikh";
     private static String GRANTTYPE = "client_credentials";
+
+    private String API_URL = this.API_BASE_URL + "/OAuth/authorize";
 
     /**
      * @var String token
@@ -38,12 +40,10 @@ public class Token {
         map.put("appsecret", this.APPSECRET);
         map.put("grant_type", this.GRANTTYPE);
 
-        String url = RequestUtil.API_BASE_URL + "/OAuth/authorize";  // 接口地址
-
         Map<String, Object> result = null;
 
         try {
-            result = RequestUtil.doPost(url, map);
+            result = RequestUtil.doPost(this.API_URL, map);
         } catch (Exception e) {
             e.printStackTrace();
             return "";
