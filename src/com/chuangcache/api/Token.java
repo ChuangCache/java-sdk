@@ -8,8 +8,8 @@ import org.apache.commons.lang.StringUtils;
 
 public class Token extends BaseAPI {
 
-    private static String APPID = "xf3H3si8I0o31ilL";
-    private static String APPSECRET = "Gi3ZbVjCi7Vt1qZxI55JiMuEzQQZCikh";
+    private static String APPID = "APPID";
+    private static String APPSECRET = "APPSECRET";
     private static String GRANTTYPE = "client_credentials";
 
     private String API_URL = this.API_BASE_URL + "/OAuth/authorize";
