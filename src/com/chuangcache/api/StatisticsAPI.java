@@ -10,8 +10,6 @@ import java.util.Map;
 
 public class StatisticsAPI extends BaseAPI {
 
-    private String API_URL = this.API_BASE_URL + "/history/getdata";
-
     public String bandwidth(String domain, long startTime, long endTime, int resultType) {
         return getData("bandwidth", domain, startTime, endTime, resultType);
     }
@@ -38,13 +36,6 @@ public class StatisticsAPI extends BaseAPI {
         map.put("starttime", startTime);
         map.put("endtime", endTime);
         map.put("resulttype", resultType);
-        return this.getAPIResult(this.API_URL, map);
-    }
-
-    public static void main(String[] args) {
-        StatisticsAPI api = new StatisticsAPI();
-        long end = System.currentTimeMillis();
-        String json = api.bandwidth(null, end, end, 0);
-        System.out.println(json);
+        return this.getAPIResult(this.API_BASE_URL + "/history/getdata", map);
     }
 }
